@@ -6,7 +6,7 @@ export default function App() {
       <Content>
 
         <Header>
-
+          Galeria de fotos
         </Header>
 
         {/* Area de upload */}
