@@ -1,11 +1,19 @@
+import { Container, Content, Header } from "./styles/App.styles";
 
-
-function App() {
+export default function App() {
   return (
-    <>
-      <h1>Testando</h1>
-    </>
+    <Container>
+      <Content>
+
+        <Header>
+
+        </Header>
+
+        {/* Area de upload */}
+
+        {/* fotos */}
+
+      </Content>
+    </Container>
   );
 }
-
-export default App;
