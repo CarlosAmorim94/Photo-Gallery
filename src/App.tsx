@@ -1,4 +1,5 @@
-import { Container, Content, Header } from "./styles/App.styles";
+import { Container, Content, Header } from "./styles/App.styles"
+import * as Photos from './services/photos'
 
 export default function App() {
   return (
