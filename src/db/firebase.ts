@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app'
-import { getStorage } from 'firebase/storage'
+import { initializeApp } from "firebase/app"
+import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,

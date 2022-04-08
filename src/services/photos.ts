@@ -5,7 +5,9 @@ import { ref, listAll, getDownloadURL } from 'firebase/storage'
 export const getAll = async () => {
   let list: Photo[] = []
 
+  //referenciar no banco de dados onde os arquivos estão
   const imagesFolder = ref(storage, "images")
+  
   const photoList = await listAll(imagesFolder)
 
   for (let i in photoList.items) {
