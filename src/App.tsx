@@ -47,6 +47,13 @@ export default function App() {
         </PhotoList>
         }
 
+        {!loading && photos.length === 0 &&
+          <ScreenWarning>
+            <div className="emoji">📸</div>
+            <div>Não há fotos cadastradas.</div>
+          </ScreenWarning>
+        }
+
       </Content>
     </Container>
   );
