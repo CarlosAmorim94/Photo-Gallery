@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
-import { Container, Content, Header, PhotoList, ScreenWarning } from "./styles/App.styles"
+import { useEffect, useState, FormEvent } from "react";
+import { Container, Content, Header, PhotoList, ScreenWarning, UploadForm } from "./styles/App.styles"
 import * as Photos from './services/photos'
 import { Photo } from "./types/Photo";
+import PhotoItem from "./components/PhotoItem/Index";
 
 export default function App() {
 
   const [loading, setLoading] = useState(false)
   const [photos, setPhotos] = useState<Photo[]>([])
+  const [uploading, setUploading] = useState(false)
 
   useEffect(()=>{
     const getPhotos = async () => {
@@ -21,6 +23,28 @@ export default function App() {
 
   },[])
 
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement> ) => {
+    event.preventDefault()
+
+
+    const formData = new FormData(event.currentTarget)
+    const file = formData.get('image') as File
+
+    if(file && file.size > 0) {
+      setUploading(true)
+        let result = await Photos.insert(file)
+      setUploading(false)
+
+      if( result instanceof Error) {
+        alert(`${result.name} - ${result.message}`)
+      } else {
+        let newPhotoList = [...photos]
+        newPhotoList.push(result)
+        setPhotos(newPhotoList)
+      }
+    }
+  }
+
 
   return (
     <Container>
@@ -30,7 +54,11 @@ export default function App() {
           Galeria de fotos
         </Header>
 
-        {/* Area de upload */}
+        <UploadForm method="POST" onSubmit={handleFormSubmit}>
+          <input type="file" name="image" />
+          <input type="submit" value="Enviar" />
+          {uploading && "Enviando..." }
+        </UploadForm>
 
         {loading && 
         <ScreenWarning>
@@ -41,8 +69,8 @@ export default function App() {
 
         {!loading && photos.length > 0 &&
         <PhotoList>
-          {photos.map((photo, index) => (
-            <div>{photo.name}</div>
+          {photos.map((item, index) => (
+            <PhotoItem key={index} url={item.url} name={item.name} />
           ))}
         </PhotoList>
         }

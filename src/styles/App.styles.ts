@@ -50,7 +50,7 @@ export const UploadForm = styled.form`
     transition: opacity 0.2s;
     
     &:hover {
-      opacity: 0.8;
+      opacity: 0.7;
     }
   }
 `
