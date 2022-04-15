@@ -1,8 +1,13 @@
 import { useEffect, useState, FormEvent } from "react";
-import { Container, Content, Header, PhotoList, ScreenWarning, UploadForm } from "./styles/App.styles"
+import { Container, Content, Header, PhotoList, ScreenWarning, UploadForm } from "./styles/App.styles";
 import * as Photos from './services/photos'
 import { Photo } from "./types/Photo";
 import PhotoItem from "./components/PhotoItem/Index";
+
+import Lottie from 'react-lottie';
+import loadingImg from "./assets/Lottie/loadingLottie.json";
+import uploadImg from "./assets/Lottie/uploadingLottie.json";
+import noPhoto from "./assets/Lottie/noPhoto.json";
 
 export default function App() {
 
@@ -58,14 +63,25 @@ export default function App() {
           <input type="file" name="image" />
           <input type="submit" value="Enviar" />
           {uploading && 
-            "Enviando..."
-            //Lottie carregando envio
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: uploadImg,
+              }}
+              />
           }
         </UploadForm>
 
         {loading && 
         <ScreenWarning>
-          <div className="emoji">🤚</div>
+          <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: loadingImg,
+              }}
+              />
           <div>Carregando...</div>
         </ScreenWarning>
         }
@@ -80,7 +96,13 @@ export default function App() {
 
         {!loading && photos.length === 0 &&
           <ScreenWarning>
-            <div className="emoji">📸</div>
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: noPhoto,
+              }}
+              />
             <div>Não há fotos cadastradas.</div>
           </ScreenWarning>
         }
