@@ -4,6 +4,10 @@ Projeto criado para treinar CRUD com arquivos de fotos, feito com ReactJS, Types
 
 ![Projeto sem Título](https://user-images.githubusercontent.com/83739628/163630293-5195eb9b-eeee-411c-87ea-5fb5e9612415.gif)
 
+## 🖥️ Acesse:
+
+https://carlos-galeria.vercel.app/
+
 
 ## 🚀 Projeto criado com as seguintes tecnologias:
 
@@ -17,6 +21,7 @@ Projeto criado para treinar CRUD com arquivos de fotos, feito com ReactJS, Types
   - ✔️ Adicionei função de deletar fotos.
   - ✔️ Responsividade (PC, Notebook e Smartphone).
   - ✔️ Animações.
+  - ✔️ Deploy na vercel.
 
 ## ⚙ Pré Requisitos:
 
