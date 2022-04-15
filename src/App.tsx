@@ -56,21 +56,27 @@ export default function App() {
       <Content>
 
         <Header>
-          Galeria de fotos
+          GALERIA DE FOTOS
         </Header>
 
         <UploadForm method="POST" onSubmit={handleFormSubmit}>
           <input type="file" name="image" />
-          <input type="submit" value="Enviar" />
-          {uploading && 
-            <Lottie
-              options={{
-                loop: true,
-                autoplay: true,
-                animationData: uploadImg,
-              }}
-              />
-          }
+          <div className="sent-image">
+            {uploading &&
+                <div className="uploading-photo">
+                  <Lottie
+                    options={{
+                      loop: true,
+                      autoplay: true,
+                      animationData: uploadImg,
+                    }}
+                    />
+                </div>
+              }
+            <input type="submit" value="Enviar" />
+            
+           </div>
+            
         </UploadForm>
 
         {loading && 

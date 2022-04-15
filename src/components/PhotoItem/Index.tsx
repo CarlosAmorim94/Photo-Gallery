@@ -18,15 +18,17 @@ export default function PhotoItem({ url, name }: Props) {
 
   return (
     <Container>
+
       <img src={url} alt={name} />
-      <div>
-        <div>
-          {name}
-        </div>
-        <button onClick={deletephoto}>
-          Deletar
-        </button>
+      
+      <div className='name-photo'>
+        {name}
       </div>
+
+      <button onClick={deletephoto}>
+        X
+      </button>
+      
     </Container>
   )
 }
