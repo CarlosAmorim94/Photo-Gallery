@@ -13,7 +13,8 @@ Projeto criado para treinar CRUD com arquivos de fotos, feito com ReactJS, Types
 - ✔️ Firebase.
 
 ## 🚀 Fui além e adicionei:
-
+  
+  - ✔️ Adicionei função de deletar fotos.
   - ✔️ Responsividade (PC, Notebook e Smartphone).
   - ✔️ Animações.
 
