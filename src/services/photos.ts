@@ -1,6 +1,6 @@
 import { Photo } from "../types/Photo"
 import { storage } from "../db/firebase"
-import { ref, listAll, getDownloadURL, uploadBytes } from 'firebase/storage'
+import { ref, listAll, getDownloadURL, uploadBytes, deleteObject } from 'firebase/storage'
 import { v4 as createId } from 'uuid'
 
 export const getAll = async () => {
@@ -40,4 +40,10 @@ export const insert = async (file: File) => {
   } else {
     return new Error('Tipo de arquivo não permitido, somente JPEG, JPG e PNG')
   }
+}
+
+export const deleteItem = async ( name: string ) => {
+  const photodelete = ref(storage, `images/${name}`)
+
+  await deleteObject(photodelete)
 }

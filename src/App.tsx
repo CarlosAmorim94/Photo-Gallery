@@ -57,7 +57,10 @@ export default function App() {
         <UploadForm method="POST" onSubmit={handleFormSubmit}>
           <input type="file" name="image" />
           <input type="submit" value="Enviar" />
-          {uploading && "Enviando..." }
+          {uploading && 
+            "Enviando..."
+            //Lottie carregando envio
+          }
         </UploadForm>
 
         {loading && 

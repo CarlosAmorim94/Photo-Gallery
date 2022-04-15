@@ -4,6 +4,8 @@ export const Container = styled.div`
   background-color: #3d3f43;
   border-radius: 10px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
   
 
   img {
@@ -13,9 +15,6 @@ export const Container = styled.div`
     border-radius: 10px;
   }
 
-  span {
-    display: block;
-  }
 
   button {
     background: #F82D30;
@@ -30,7 +29,7 @@ export const Container = styled.div`
     transition: filter 0.2s;
     
     &:hover {
-      filter: brightness(0.9);
+      filter: brightness(0.7);
     }
   }
 `
